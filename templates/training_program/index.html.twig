@@ -1,0 +1,36 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}TrainingProgram index{% endblock %}
+{% block headTitle %}Liste des formations{% endblock %}
+{% block body %}
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Level</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for training_program in training_programs %}
+            <tr>
+                <td>{{ training_program.id }}</td>
+                <td>{{ training_program.name }}</td>
+                <td>{{ training_program.level }}</td>
+                <td>
+                
+                    <a href="{{ path('app_training_program_show', {'id': training_program.id}) }}"><iconify-icon icon="carbon:view-filled" width="25"></iconify-icon></a>
+                    <a href="{{ path('app_training_program_edit', {'id': training_program.id}) }}"><iconify-icon icon="material-symbols-light:edit" width="25"></iconify-icon></a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="4">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_training_program_new') }}">Create new</a>
+{% endblock %}

@@ -1,0 +1,106 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello DashboardController!
+{% endblock %}
+{% block headTitle %}Dashboard
+{% endblock %}
+{% block body %}
+	{# {% if app.user %}
+		<h6>Bonjour
+			{{ app.user.username }}</h6> #}
+		{# {% if is_granted('ROLE_ADMIN') %}
+			<small>
+				Connecté en tant qu'admin</small>
+		{% endif %} #}
+	{# {% endif %} #}
+	<section id="dashboard">
+		<div class="dashboard__content">
+			<div class="dashboard__content__left">
+				<div class="chart">
+					{{ render_chart(chart, {'class': 'my-chart'}) }}
+				</div>
+				<div class="stat">
+					<div class="stat__title">
+						<h6>Statistiques</h6>
+					</div>
+					<div class="stat__content">
+						<div class="stat1">
+							<h6>stat 1</h6>
+							<p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Tenetur enim architecto sequi</p>
+						</div>
+						<div class="stat2">
+							<h6>stat 1</h6>
+							<p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Tenetur enim architecto sequi</p>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="dashboard__content__right">
+				<div class="admin_list">
+					<div class="admin__list__title">
+						<h6>Liste des admins :</h6>
+					</div>
+					<div class="admin__list__content">
+						<div class="admin_info">
+							<div class="info">
+								<img src="https://a.ltrbxd.com/resized/sm/upload/w7/2c/nu/9p/kirkou-1200-1200-675-675-crop-000000.jpg?k=8710993d6b" alt="" srcset="">
+								<div class="text">
+									<p>nom et prénom</p>
+									<p class="mail_admin">Adresse mail</p>
+								</div>
+							</div>
+							<div class="message">
+								<iconify-icon icon="mdi:message-outline" width="20"></iconify-icon>
+							</div>
+						</div>
+						<div class="admin_info">
+							<div class="info">
+								<img src="https://a.ltrbxd.com/resized/sm/upload/w7/2c/nu/9p/kirkou-1200-1200-675-675-crop-000000.jpg?k=8710993d6b" alt="" srcset="">
+								<div class="text">
+									<p>nom et prénom</p>
+									<p>Adresse mail</p>
+								</div>
+							</div>
+							<div class="message">
+								<iconify-icon icon="mdi:message-outline" width="20"></iconify-icon>
+							</div>
+						</div>
+						<div class="admin_info">
+							<div class="info">
+								<img src="https://a.ltrbxd.com/resized/sm/upload/w7/2c/nu/9p/kirkou-1200-1200-675-675-crop-000000.jpg?k=8710993d6b" alt="" srcset="">
+								<div class="text">
+									<p>nom et prénom</p>
+									<p>Adresse mail</p>
+								</div>
+							</div>
+							<div class="message">
+								<iconify-icon icon="mdi:message-outline" width="20"></iconify-icon>
+							</div>
+						</div>
+						<div class="admin_info">
+							<div class="info">
+								<img src="https://a.ltrbxd.com/resized/sm/upload/w7/2c/nu/9p/kirkou-1200-1200-675-675-crop-000000.jpg?k=8710993d6b" alt="" srcset="">
+								<div class="text">
+									<p>nom et prénom</p>
+									<p>Adresse mail</p>
+								</div>
+							</div>
+							<div class="message">
+								<iconify-icon icon="mdi:message-outline" width="20"></iconify-icon>
+							</div>
+						</div>
+					</div>
+				</div>
+					<div class="chart_2">
+						<div class="chart_2__title">
+							<h6>Statistiques de la conversation : </h6>
+						</div>
+						<div class="my-chart_2">
+							{{ render_chart(chart_circle, {'class': 'my-chart-circle'}) }}
+						</div>
+					</div>
+			</div>
+		</div>
+
+	</section>
+{% endblock %}

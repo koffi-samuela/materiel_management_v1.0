@@ -1,0 +1,45 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New Employee{% endblock %}
+{% block headTitle %}Créer un nouvel employée{% endblock %}
+
+{% block body %}
+	<section class="new_employee">
+		{# <h3>Créer un nouvel employée</h3> #}
+		{# {{ include('employee/_form.html.twig') }} #}
+		{# {{ form_start(form) }}
+		        {{ form_widget(form) }}
+		
+		        <button class="btn" type="submit">Ajouter</button>
+		    {{ form_end(form) }} 
+		    {{form(form)}}
+		        <a href="{{ path('app_employee_index') }}" class="btn">back to list</a> #}
+		{{ form_start(form) }}
+
+		<div class="row">
+			<div class="col">
+				{{ form_row(form.lastname) }}
+			</div>
+			<div class="col">
+				{{ form_row(form.firstname) }}
+			</div>
+		</div>
+
+		{{ form_row(form.username) }}
+		<div class="form-check form-check-inline">
+			{{ form_row(form.roles) }}
+		</div>
+		{{ form_row(form.password) }}
+		{{ form_row(form.is_active) }}
+        {# <div class="d-flex justify-content-center"> #}
+            {# <a href="{{ path('app_employee_index') }}" class="btn">back to list</a> #}
+            <button class=" btn primary_btn my-4" type="submit">Ajouter</button>
+        {# </div> #}
+		{# Autres champs du formulaire #}
+
+		{{ form_end(form) }}
+
+		<a href="{{ path('app_employee_index') }}" class="btn">back to list</a>
+	</section>
+
+{% endblock %}

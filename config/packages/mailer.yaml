@@ -1,0 +1,10 @@
+framework:
+    mailer:
+        envelope:
+            sender: 'material_contact@example.com'
+            recipients: ['admin_contact@gmail.com', 'bar@example.com']
+        headers:
+            From: 'Fabien <fabien@example.com>'
+            Bcc: 'baz@example.com'
+            X-Custom-Header: 'foobar'
+        dsn: smtp://127.0.0.1:1025

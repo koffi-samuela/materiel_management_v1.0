@@ -1,0 +1,55 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Log in!
+{% endblock %}
+
+{% block body %}
+		{% for message in app.flashes('success') %}
+			<div class="alert alert-success">{{ message }}</div>
+		{% endfor %}
+
+		{% for message in app.flashes('error') %}
+			<div class="alert alert-danger">{{ message }}</div>
+		{% endfor %}
+	<section id="login_form">
+		<form method="post">
+			{% if error %}
+				<div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+			{% endif %}
+
+			{% if app.user %}
+				<div class="mb-3">
+					You are logged in as
+					{{ app.user.userIdentifier }},
+					<a href="{{ path('app_logout') }}">Logout</a>
+				</div>
+			{% endif %}
+
+			<h1 class="h3 mb-3 font-weight-normal">Connectez-vous ici
+			</h1>
+			<div class="form_group">
+				<label for="inputUsername" class="form-label">Nom d'utlisateur</label>
+				<input type="text" value="{{ last_username }}" name="username" id="inputUsername" class="form-control" autocomplete="username" required autofocus>
+			</div>
+			<div class="form_group">
+
+				<label for="inputPassword" class="form-label">Mot de passe</label>
+				<input type="password" name="password" id="inputPassword" class="form-control" autocomplete="current-password" required>
+			</div>
+			<div class="forgotPassword">
+				<a href="{{path('app_forgot_password')}}">Mot de passe oublié ?</a>
+			</div>
+			<input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
+			<div class="form-check">
+				<input class="form-check-input" type="checkbox" name="_remember_me">
+				<label class="form-check-label" for="flexCheckDefault">
+					Se souvenir de moi
+				</label>
+			</div>
+
+			<button class="btn btn-light login_btn" type="submit">
+				Connexion
+			</button>
+		</form>
+	</section>
+{% endblock %}

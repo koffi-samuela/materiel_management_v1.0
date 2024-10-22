@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New Student{% endblock %}
+ {% block headTitle %}Ajouter un étudiant{% endblock %}
+
+{% block body %}
+	<section class="new_employee">
+
+    {{ include('student/_form.html.twig') }}
+
+    <a href="{{ path('app_student_index') }}" class="btn primary_btn">back to list</a>
+    <input type="submit" value="Create" class="btn primary_btn"/>
+{% endblock %}

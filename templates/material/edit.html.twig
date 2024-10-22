@@ -1,0 +1,17 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit Material{% endblock %}
+ {% block headTitle %}Détail d'un matériel{% endblock %}
+
+{% block body %}
+	<section class="new_employee">
+
+        <div class="editMaterial">
+            {{ include('material/_form.html.twig', {'button_label': 'Update'}) }}
+        </div>
+        <a href="{{ path('app_material_index') }}">back to list</a>
+
+        {{ include('material/_delete_form.html.twig') }}
+    </section>
+
+{% endblock %}

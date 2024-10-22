@@ -1,0 +1,55 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Employee index{% endblock %}
+{% block headTitle %} Liste des utilisateurs Campus Amiens {% endblock %}
+{% block body %}
+<section class"">
+
+    {# <h1 class="text-dark">Employee index</h1> #}
+
+    {# <table class="table table-bordered table-striped"> #}
+    <table class="">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nom d'utilisateur</th>
+                <th>Roles</th>
+                {# <th>Password</th> #}
+                <th>Nom</th>
+                <th>Prénom</th>
+                <th>Is_active</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {# {{dump(borrow)}} #}
+        {% for employee in employees %}
+        {# {{dump(employee.manage)}} #}
+
+            <tr>
+                <td>{{ employee.id }}</td>
+                <td>{{ employee.username }}</td>
+                <td>{{ employee.roles ? employee.roles|join(', ') : '' }}</td>
+                {# <td>{{ employee.password }}</td> #}
+                <td>{{ employee.lastname }}</td>
+                <td>{{ employee.firstname }}</td>
+                <td>{{ employee.isActive ? 'Actif' : 'Inactif' }}</td>
+                <td class="actions">           
+                    <a href="{{ path('app_employee_show', {'id': employee.id}) }}"><iconify-icon icon="carbon:view-filled" width="25"></iconify-icon></a>
+                    <a href="{{ path('app_employee_edit', {'id': employee.id}) }}"><iconify-icon icon="material-symbols-light:edit" width="25"></iconify-icon></a>
+                    
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="8">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_employee_new') }}" class="btn">Create new</a>
+
+</section>
+
+{% endblock %}

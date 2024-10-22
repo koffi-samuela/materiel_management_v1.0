@@ -1,0 +1,63 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Material{% endblock %}
+ {% block headTitle %}Détail d'un matériel{% endblock %}
+
+{% block body %}
+<div class="showMaterial">
+    <table class="table">
+        <tbody>
+            <tr class="toptr">
+                <th class="topLeft">Id</th>
+                <th>Name</th>
+                <th>Serial_number</th>
+                <th>Tag_number</th>
+                <th>Comment</th>
+                <th>Location</th>
+                <th class="topRight">Is_available</th>
+            </tr>
+            <tr class="datatr">
+                <td>{{ material.id }}</td>
+                <td>{{ material.name }}</td>
+                <td>{{ material.serialNumber }}</td>
+                <td>{{ material.tagNumber }}</td>
+                <td class="comment-cell"><span class="comment-content">{{ material.comment }}</span></td>
+                <td>{{ material.location }}</td>
+                <td>{{ material.isAvailable ? 'Yes' : 'No' }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_material_index') }}">back to list</a>
+
+    <a href="{{ path('app_material_edit', {'id': material.id}) }}">edit</a>
+
+    {{ include('material/_delete_form.html.twig') }}
+</div>
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const commentCell = document.querySelector('.comment-cell');
+            const commentContent = document.querySelector('.comment-content');
+            let isExpanded = false;
+
+            commentCell.addEventListener('click', function() {
+                if (isExpanded) {
+                    commentContent.style.whiteSpace = 'nowrap';
+                    commentContent.style.overflow = 'hidden';
+                    commentContent.style.textOverflow = 'ellipsis';
+                    isExpanded = false;
+                } else {
+                    commentContent.style.whiteSpace = 'normal';
+                    commentContent.style.overflow = 'auto';
+                    commentContent.style.textOverflow = 'unset';
+                    isExpanded = true;
+                }
+            });
+        });
+    </script>
+{% endblock %}
+

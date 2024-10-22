@@ -1,0 +1,17 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit Borrowing{% endblock %}
+ {% block headTitle %}Modifier un emprunt{% endblock %}
+
+{% block body %}
+{# <div class="title">
+    <h1>Modifier un emprunt</h1>
+</div> #}
+    <div class="createMaterial">
+        {{ include('borrowing/_form.html.twig', {'button_label': 'Mettre à jour'}) }}
+    </div>
+
+    <a href="{{ path('app_borrowing_index') }}">Retour a l'historique</a>
+
+    {{ include('borrowing/_delete_form.html.twig') }}
+{% endblock %}

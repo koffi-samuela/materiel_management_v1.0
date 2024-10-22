@@ -1,0 +1,86 @@
+@use '../../abstracts/mixins.scss' as m;
+#dashboard{
+    width: 90%;
+    margin: 2vh auto;
+    img{
+        width: 40px;
+        height: 40px;
+        border-radius: 8px;
+    }
+    .chart{
+        width: 100%;
+    }
+    .dashboard__content{
+        display: flex;
+        justify-content: space-between;
+        gap: 5vw;
+    }
+    .chart .my-chart{
+        height: 350px !important;
+        width: 100% !important;
+    }
+    .dashboard__content__left{
+        @include m.dflex(column,$align:flex-start);
+        gap:1vh;
+        width: 65%;
+    }
+    .dashboard__content__right{
+        @include m.dflex(column,$align:stretch);
+        width: 35%;
+    }
+    .stat{
+        p{
+            font-size: 14px;
+        }
+        &__title{
+            text-align: start;
+            margin: 2vh 0;
+        }
+        &__content{
+        @include m.dflex($justify:center);
+        gap: 3vw;
+        }
+        .stat1,.stat2{
+           background-color: rgb(249, 143, 178); 
+           padding: 1vh 1vw;
+           border-radius: 10px;
+           color: rgb(0, 0, 0);
+        }
+    }
+    .admin__list__title h6{
+        margin: 2vh 0;
+        font-size: 20px;
+    }
+    .admin__list__content{
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        gap: 2vh;
+        .admin_info{
+            width: 80%;
+            display: flex;
+                align-items: center;
+                justify-content: space-between;
+            .info{
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                gap: 1vw;
+                p{
+                    margin: 0;
+                    font-size: 14px;
+                }
+            }
+        }
+    }
+    .chart_2__title{
+        margin: 2vh 0;
+    }
+    .mail_admin{
+        font-weight:500;
+    }
+}
+.my-chart-circle{
+    height: 30vh !important;
+    width: auto !important;
+}

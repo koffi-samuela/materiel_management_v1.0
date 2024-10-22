@@ -1,0 +1,41 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Student index{% endblock %}
+ {% block headTitle %}Liste des étudiants{% endblock %}
+
+{% block body %}
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Firstname</th>
+                <th>Lastname</th>
+                <th>Birthdate</th>
+                <th>Is_active</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for student in students %}
+            <tr>
+                <td>{{ student.id }}</td>
+                <td>{{ student.firstname }}</td>
+                <td>{{ student.lastname }}</td>
+                <td>{{ student.birthdate ? student.birthdate|date('Y-m-d') : '' }}</td>
+                <td>{{ student.isActive ? 'Yes' : 'No' }}</td>
+                <td>
+                    <a href="{{ path('app_student_show', {'id': student.id}) }}"><iconify-icon icon="carbon:view-filled" width="25"></iconify-icon></a>
+                    <a href="{{ path('app_student_edit', {'id': student.id}) }}"><iconify-icon icon="material-symbols-light:edit" width="25"></iconify-icon></a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="6">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_student_new') }}">Créer un nouvel étudiant</a>
+{% endblock %}

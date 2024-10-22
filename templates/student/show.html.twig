@@ -1,0 +1,55 @@
+{% extends 'base.html.twig' %}
+ {% block headTitle %}Détail d'un étudiant{% endblock %}
+
+{% block title %}Student{% endblock %}
+
+{% block body %}
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ student.id }}</td>
+            </tr>
+            <tr>
+                <th>Firstname</th>
+                <td>{{ student.firstname }}</td>
+            </tr>
+            <tr>
+                <th>Lastname</th>
+                <td>{{ student.lastname }}</td>
+            </tr>
+            <tr>
+                <th>Birthdate</th>
+                <td>{{ student.birthdate ? student.birthdate|date('Y-m-d') : '' }}</td>
+            </tr>
+            <tr>
+                <th>Is_active</th>
+                <td>{{ student.isActive ? 'Yes' : 'No' }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_student_index') }}">back to list</a>
+
+    <a href="{{ path('app_student_edit', {'id': student.id}) }}">edit</a>
+    {{ include('student/_delete_form.html.twig') }}
+    <h4>Mes emprunts</h4>
+	<a href="{{ path('app_employee_index') }}">back to list</a>
+    {# <div class="row"></div> #}
+	{% for user_borrow in user_borrows %}
+		<div class="card border-primary mb-3" style="max-width: 18rem;">
+			<div class="card-header">Date d'emprunt : {{user_borrow.borrowDate|date('Y-m-d')}}</div>
+			<div class="card-body text-primary">
+				<h5 class="card-title">Element : {{user_borrow.material.name}} </h5>
+                <h6 class="card-subtitle mb-2 text-muted">N° de série : {{user_borrow.material.tagNumber}}  </h6>
+				{# <p class="card-text">{{user_borrow.material.comment}} </p>
+			</div>
+            <div class="card-footer bg-transparent border-primary">Date de retour :{{user_borrow.actual_return_date|date('Y-m-d H:i')}} </div> #}
+		</div>
+	{% else %}
+		<p>Vous n'avez emporté aucun matériel</p>
+	{% endfor %}
+    {{ include('student/_delete_form.html.twig') }}
+{% endblock %}
+{% endblock %}

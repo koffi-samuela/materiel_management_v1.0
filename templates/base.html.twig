@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
+		<title>
+			{% block title %}Welcome!
+			{% endblock %}
+		</title>
+		<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text><text y=%221.3em%22 x=%220.2em%22 font-size=%2276%22 fill=%22%23fff%22>sf</text></svg>">
+		<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text><text y=%221.3em%22 x=%220.2em%22 font-size=%2276%22 fill=%22%23fff%22>sf</text></svg>">
+		<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+		<script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
+		{% block stylesheets %}{% endblock %}
+		{% block javascripts %}
+		</head>
+		<head>
+			<script>
+				// Lorsque l'utilisateur tape dans la barre de recherche
+$('#searchInput').on('input', function () {
+var searchQuery = $(this).val();
+// Envoyer une requête AJAX au serveur
+$.ajax({
+url: '/material/search',
+method: 'GET',
+data: {
+q: searchQuery
+},
+success: function (response) { // Mettre à jour la liste de matériaux avec les résultats
+$('#materialList').html(response);
+}
+});
+});
+			</script>
+
+			{% block importmap %}
+				{{ importmap('app') }}
+			{% endblock %}
+		{% endblock %}
+	</head>
+
+	<body>
+		{% if app.user %}
+
+			{% block header %}
+				<header class="sidebar" id="mySidebar">
+					<div
+						class="sidebar__content">
+						{# <img src="{{asset('/img/LaManuUltraCompact_RVB_white.svg')}}" alt="" srcset="" class="logo"> #}
+						<div class="sidebar__content__item">
+							<div class="simple_menu">
+								{# {% if is_granted('ROLE_ADMIN') %} #}
+								<a href="{{path('app_dashboard')}}">
+									<iconify-icon icon="ri:dashboard-fill" style="color: rgb(255, 255, 255);" width="25"></iconify-icon>
+									<span class="nav-item">Vue d'ensemble</span>
+								{# {% endif %} #}
+								</a>
+								{# {% if is_granted('ROLE_EMPLOYEE') or is_granted('ROLE_ADMIN')  %} #}
+
+								<a href="{{path('app_employee_index')}}">
+
+									<iconify-icon icon="wpf:administrator" style="color: rgb(255, 255, 255);" width="25"></iconify-icon>
+									<span class="nav-item">Administrateur</span>
+								</a>
+								{# {% endif %} #}
+								{# {% if is_granted('ROLE_EMPLOYEE') or is_granted('ROLE_ADMIN') %} #}
+
+								<a href="{{path('app_borrowing_index')}}">
+
+									<iconify-icon icon="icomoon-free:codepen" style="color: rgb(255, 255, 255);" width="25"></iconify-icon>
+									<span class="nav-item">Emprunter</span>
+								</a>
+								{# {% endif %} #}
+
+							</div>
+							<div class="test d-flex justify-content-center">
+								<button class=" btn droptown_menu m-0 p-0">
+									<a href="">
+
+										<iconify-icon icon="fluent:box-24-filled" style="color: rgb(255, 255, 255);" width="25"></iconify-icon>
+										<span class="nav-item">Matériel</span>
+									</a>
+									<iconify-icon icon="fe:arrow-down" style="color: rgb(255, 255, 255);" width="20" class="icon_down"></iconify-icon>
+								</button>
+							</div>
+							<div class="droptown_nav">
+								<a href="{{path('app_material_index')}}">
+									Stock
+								</a>
+								<a href="{{path('app_dashboard')}}">
+
+									Détail</a>
+								<a href="{{path('app_dashboard')}}">
+
+									Ajout</a>
+								<a href="{{path('app_dashboard')}}">
+
+									Historique</a>
+							</div>
+							<div class="test d-flex justify-content-center">
+								<button class=" btn droptown_menu2 m-0 p-0">
+									<a href="{{path('app_dashboard')}}">
+
+										<iconify-icon icon="fa-solid:users" style="color: rgb(255, 255, 255);" width="25"></iconify-icon>
+										<span class="nav-item">Utilisateurs</span>
+									</a>
+									<iconify-icon icon="fe:arrow-down" style="color: rgb(255, 255, 255);" width="20" class="icon_down"></iconify-icon>
+								</button>
+							</div>
+							<div class="droptown_nav2">
+								<a href="{{path('app_student_index')}}">Liste
+								</a>
+								<a href="{{path('app_student_new')}}">
+									Ajout
+								</a>
+								{# <a href=""> Lien 3</a> #}
+							</div>
+						</div>
+					</div>
+					<button class="btn" id="btn_menu">
+						<iconify-icon icon="heroicons-solid:logout" style="color: rgb(255, 255, 255);" width="35"></iconify-icon>
+					</button>
+				</header>
+			{% endblock %}
+
+		{% endif %}
+
+		{# <div class="main-content"> #}
+		<main id="main">
+			{% if app.user %}
+				<div
+					class="headPages">
+					{# {% block headPages %}  #}
+					<h5>
+						{% block headTitle %}{% endblock %}
+					</h5>
+					<div class="profile">
+						<img src="https://www.pngkey.com/png/full/115-1150152_default-profile-picture-avatar-png-green.png" alt="profile_img">
+						<div class="info_user">
+
+							<h6>{{ app.user.username }}</h6>
+							<p class="text-muted">
+								{% if app.user.roles[0] == 'ROLE_ADMIN' %}
+									Administrateur
+									{# {% elseif app.user.roles[0] == 'ROLE_ADMIN'  %} #}
+
+								{% else %}
+									Employé
+								{% endif %}
+								{# {{ app.user.roles[0]}} #}
+							</p>
+						</div>
+						{# </div> #}
+					</div>
+
+					{# {% endblock %} #}
+				</div>
+			{% endif %}
+			{% block body %}{% endblock %}
+		</main>
+		{# </div> #}
+	</body>
+</html>

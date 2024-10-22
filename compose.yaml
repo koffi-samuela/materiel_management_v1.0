@@ -1,0 +1,27 @@
+version: '3'
+
+services:
+###> doctrine/doctrine-bundle ###
+  database:
+    image: mariadb:10.11.2
+    environment:
+      MARIADB_DATABASE: materiel_management
+      # You should definitely change the password in production
+      MARIADB_ROOT_PASSWORD: 'root'
+      # MARIADB_USER: ${POSTGRES_USER:-app}
+    volumes:
+      - database_data:/var/lib/mysql
+      # You may use a bind-mounted host directory instead, so that it is harder to accidentally remove the volume and lose all your data!
+      # - ./docker/db/data:/var/lib/postgresql/data:rw
+###< doctrine/doctrine-bundle ###
+  phpmyadmin:
+    image: phpmyadmin
+    ports:
+      - "8083:80"
+    environment:
+      - PMA_HOST=database
+      - PMA_ARBITRARY=1
+volumes:
+###> doctrine/doctrine-bundle ###
+  database_data:
+###< doctrine/doctrine-bundle ###

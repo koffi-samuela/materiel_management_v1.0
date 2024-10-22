@@ -1,0 +1,53 @@
+{% extends 'base.html.twig' %}
+ {% block headTitle %}Modifier un emprunteur{% endblock %}
+
+{% block title %}Borrowing{% endblock %}
+
+{% block body %}
+    <h1>Borrowing</h1>
+
+    <table class="table">
+        <tbody>
+            {% if borrowing.employee is not none %}
+                <tr>
+                    <th>Nom de l'emprunteur</th>
+                    <td>{{ borrowing.employee.firstname }} {{ borrowing.employee.lastname }} (employé)</td>
+                </tr>
+            {% endif %}
+
+            {% if borrowing.student is not none %}
+                <tr>
+                    <th>Nom de l'emprunteur</th>
+                    <td>{{ borrowing.student.firstname }} {{ borrowing.student.lastname }} (étudiant)</td>
+                </tr>
+            {% endif %}
+
+            <tr>
+                <th>Id</th>
+                <td>{{ borrowing.id }}</td>
+            </tr>
+            <tr>
+                <th>Borrow_date</th>
+                <td>{{ borrowing.borrowDate ? borrowing.borrowDate|date('Y-m-d') : '' }}</td>
+            </tr>
+            <tr>
+                <th>Expected_return_date</th>
+                <td>{{ borrowing.expectedReturnDate ? borrowing.expectedReturnDate|date('Y-m-d') : '' }}</td>
+            </tr>
+            <tr>
+                <th>Actual_return_date</th>
+                <td>{{ borrowing.actualReturnDate ? borrowing.actualReturnDate|date('Y-m-d') : '' }}</td>
+            </tr>
+            <tr>
+                <th>Comment</th>
+                <td>{{ borrowing.comment }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_borrowers_index') }}">back to list</a>
+
+    <a href="{{ path('app_borrowers_edit', {'id': borrowing.id}) }}">edit</a>
+
+    {{ include('borrowers/_delete_form.html.twig') }}
+{% endblock %}

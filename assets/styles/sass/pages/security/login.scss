@@ -1,0 +1,16 @@
+@use '../../abstracts/variables.scss' as *;
+#login_form{
+    color: white;
+    background-color: $primary;
+    width: 45%;
+    margin: 2vh auto;
+    margin-top: 8vh;
+    padding: 4vh 3vw;
+    border-radius: 15px;
+    .login_btn{
+        margin: 2vh 0;
+    }
+    .form_group{
+        margin: 2vh 0;
+    }
+}

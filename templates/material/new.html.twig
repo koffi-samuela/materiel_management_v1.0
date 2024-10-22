@@ -1,0 +1,14 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New Material{% endblock %}
+ {% block headTitle %}Ajouter un matériel{% endblock %}
+
+{% block body %}
+	<section class="new_employee">
+
+    <div class="createMaterial">
+        {{ include('material/_form.html.twig') }}
+    </div>
+    <a href="{{ path('app_material_index') }}" class="btn btn_primary">back to list</a>
+    </section>
+{% endblock %}

@@ -1,0 +1,29 @@
+/* body {
+    background-color: rgb(255, 255, 255);
+    display: grid;
+    font-family: Poppins, sans-serif;
+   
+}
+
+table{
+    // display: flex;
+
+    text-align-last: center;
+    border-style : solid;
+    border-color: #33058d ;
+    padding-left: 1%;
+
+}
+
+
+label.required {
+    display: table;
+   
+}
+
+title{
+    display: flex;
+    color: rgba(51, 5, 141, 1);
+    flex-direction: row;
+    justify-content: space-evenly;
+} */

@@ -1,0 +1,14 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit Borrowing
+{% endblock %}
+{% block headTitle %} Modifier un emprunt{% endblock %}
+
+{% block body %}
+
+	{{ include('borrowers/_form.html.twig', {'button_label': 'Update'}) }}
+
+	<a href="{{ path('app_borrowers_index') }}">back to list</a>
+
+	{{ include('borrowers/_delete_form.html.twig') }}
+{% endblock %}

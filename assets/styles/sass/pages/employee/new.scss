@@ -1,0 +1,9 @@
+@use '../../abstracts/variables.scss' as *;
+.new_employee{
+    // background-color: red;
+    background-color: rgba($color: $primary, $alpha: 0.03);
+    width: 50%;
+    margin: 2vh auto;
+    padding: 2vh 1vw;
+    border-radius: 10px;
+}

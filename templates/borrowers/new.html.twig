@@ -1,0 +1,12 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New Borrowing{% endblock %}
+ {% block headTitle %}Ajouter un emprunteur{% endblock %}
+
+{% block body %}
+
+
+    {{ include('borrowers/_form.html.twig') }}
+
+    <a href="{{ path('app_borrowing_index') }}">back to list</a>
+{% endblock %}

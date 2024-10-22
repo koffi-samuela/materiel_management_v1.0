@@ -1,0 +1,59 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Material index{% endblock %}
+ {% block headTitle %}Historique du matériel{% endblock %}
+
+{% block body %}
+
+    <div class="searchdiv">
+        <form class="globalSearchBar" action="{{ path('app_material_index') }}" method="GET">
+            <input type="text" name="q" placeholder="Rechercher par numero de serie...">
+            <button type="submit">Rechercher</button>
+        </form>
+    </div>
+
+
+    <table class="materialsIndexTable">
+        <thead>
+            <tr>
+                {# <th>Id</th> #}
+                <th class="topLeft">Element</th>
+                <th>N° d'étiquette</th>
+                <th>N° de série</th>
+                <th>Disponibilité</th>
+                <th>Emprunteur</th>
+                <th class="comment">Comment</th>
+                <th class="topRight">actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% set row_number = 0 %}
+        {% for material in materials %}
+            {% set row_number = row_number + 1 %}
+            <tr class="{{ row_number is divisible by(2) ? 'even' : 'odd' }}">
+                {# <td>{{ material.id }}</td> #}
+                <td>{{ material.serialNumber }}</td>
+                <td>{{ material.name }}</td>
+                <td>{{ material.tagNumber }}</td>
+                <td class="{% if material.isAvailable %}text-success{% else %}text-danger{% endif %}">
+                    {{ material.isAvailable ? 'Disponible' : 'Non disponible' }}
+                </td>
+                <td>{{ material.location }}</td>
+                <td>{{ material.comment }}</td>
+                <td class="actions">
+                    <a class="gg-eye" href="{{ path('app_material_show', {'id': material.id}) }}"><iconify-icon icon="carbon:view-filled" width="25"></iconify-icon></a>
+                    <a class="gg-pen" href="{{ path('app_material_edit', {'id': material.id}) }}"><iconify-icon icon="material-symbols-light:edit" width="25"></iconify-icon></a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="8">pas de matériel</td>
+            </tr>
+        {% endfor %}
+
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_material_new') }}" class="btn primary_btn">Créer un nouveau matériel</a>
+{% endblock %}
+

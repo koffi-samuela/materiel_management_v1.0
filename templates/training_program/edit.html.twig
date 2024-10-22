@@ -1,0 +1,12 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit TrainingProgram{% endblock %}
+ {% block headTitle %}Modifier une formation{% endblock %}
+
+{% block body %}
+    {{ include('training_program/_form.html.twig', {'button_label': 'Update'}) }}
+
+    <a href="{{ path('app_training_program_index') }}">back to list</a>
+
+    {{ include('training_program/_delete_form.html.twig') }}
+{% endblock %}

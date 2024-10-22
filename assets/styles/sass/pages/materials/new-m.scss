@@ -1,0 +1,54 @@
+.createMaterial{
+    display: flex;
+    justify-content: center;
+
+    form{
+        width: 35vw;
+        border: solid 1px #9898fc;
+        border-radius: 20px;
+
+        #material{
+            margin:30px;
+        }
+
+        button{
+            margin:0 0 30px 30px;
+        }
+    }
+
+    #material div{
+        display: flex;
+        flex-direction: column;
+        margin-top: 10px;
+        align-items: flex-start;
+        gap:10px;
+    }
+
+    .textInput{
+        border: none;
+        border-bottom: 1px solid #989898;
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        
+    }
+
+    .textInput:focus {
+        outline: none;
+    }
+
+    .btn{
+        padding: 10px;
+        width: 50%;
+        margin-top: 15px;
+        border-radius: 50px;
+        background: linear-gradient(90deg, rgba(51,5,141,1) 0%, rgb(0, 119, 255) 100%);
+        border:none;
+        color:white;
+        font-family: 'Poppins';
+    }
+
+    #material_materialKind{
+        width: 30px;
+    }
+}

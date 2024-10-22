@@ -1,0 +1,63 @@
+.table{
+    .topLeft{
+        border-top-left-radius: 10px;
+        }
+    
+        .topRight{
+        border-top-right-radius: 10px;
+        padding-right: 20px;
+        }
+
+    text-align: center;
+    border-radius: 20px;
+    border-collapse: collapse;
+    width: 90vw;
+    text-align: center;
+    th{
+        background-color: #33058D;
+        color: white;
+        font-size: 16px;
+        font-weight: normal;
+        height: 50px;
+    }
+
+    tbody{
+    border:1px solid rgb(197, 197, 197);
+
+    }
+    tbody {
+        display: flex;
+        flex-direction: column;
+        border-radius: 20px;
+    }
+    
+    tr {
+        display: flex;
+    }
+    
+    th, td {
+        flex: 1;
+    }
+
+    .toptr{
+        border-top-right-radius: 20px;
+        border-top-left-radius: 20px;
+    }
+
+    .comment-cell {
+        width: 200px;
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        cursor: pointer;
+    }
+    
+    .comment-cell.expanded {
+        white-space: normal;
+    }
+
+    .datatr{
+        margin: 20px 0;
+    }
+}
+

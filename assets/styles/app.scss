@@ -1,0 +1,13 @@
+// @use './sass/pages/materials/index.scss';
+// @use './sass/pages/materials/new.scss';
+// @use './sass/pages/materials/edit.scss';
+// @use './sass/pages/materials/show.scss';
+@use './sass/abstracts/mixins.scss' ;
+@use './sass/base/reset' ;
+@use './sass/layout.scss' ;
+@use './sass/pages/security/login.scss' ;
+@use './sass/pages/employee/edit.scss' ;
+@use './sass/pages/employee/new.scss' ;
+@use './sass/pages/materials/index.scss';
+@use './sass/pages/materials/new-m.scss';
+@use './sass/pages/dashboard/dashboard.scss';

@@ -1,0 +1,75 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Borrowers index
+{% endblock %}
+
+{% block body %}
+	{% block headTitle %}Liste des emprunteurs
+	{% endblock %}
+
+
+	{# templates/recherche.html.twig #}
+
+	<div class="searchdiv">
+		<form class="globalSearchBar" action="{{ path('app_borrowers_index') }}" method="GET">
+			<input type="text" name="q" placeholder="Rechercher par numero de serie...">
+			<button type="submit">Rechercher</button>
+		</form>
+	</div>
+
+	<table class="table">
+		<thead>
+			<tr>
+				<th>Emprunteur</th>
+				<th>Id emprunt</th>
+				<th>Borrow_date</th>
+				<th>Expected_return_date</th>
+				<th>Actual_return_date</th>
+				<th>Comment</th>
+				<th>actions</th>
+			</tr>
+		</thead>
+		<tbody>
+			{% for borrowing in borrowers %}
+				{# <pre>
+				            {{ dump(borrowing) }}
+				    </pre> #}
+				<tr>
+					{% if borrowing.student is not null %}
+						<td>
+							<a href="/student/{{ borrowing.student.id }}">{{ borrowing.student.firstname }}
+								{{ borrowing.student.lastname }}
+								(étudiant)</a>
+						</td>
+					{% endif %}
+
+					{% if borrowing.employee is not null %}
+						<td>
+							<a href="/employee/{{ borrowing.employee.id }}">{{ borrowing.employee.firstname }}
+								{{ borrowing.employee.lastname  }}
+								(employé)</a>
+						</td>
+					{% endif %}
+
+					<td>{{ borrowing.id }}</td>
+					<td>{{ borrowing.borrowDate ? borrowing.borrowDate|date('Y-m-d') : '' }}</td>
+					<td>{{ borrowing.expectedReturnDate ? borrowing.expectedReturnDate|date('Y-m-d') : '' }}</td>
+					<td>{{ borrowing.actualReturnDate ? borrowing.actualReturnDate|date('Y-m-d') : '' }}</td>
+					<td>{{ borrowing.comment }}</td>
+
+					<td>
+						<a href="{{ path('app_borrowers_show', {'id': borrowing.id}) }}"><iconify-icon icon="carbon:view-filled" width="25"></iconify-icon></a>
+						<a href="{{ path('app_borrowers_edit', {'id': borrowing.id}) }}"><iconify-icon icon="material-symbols-light:edit" width="25"></iconify-icon></a>
+					</td>
+				</tr>
+			{% else %}
+				<tr>
+					<td colspan="6">no records found</td>
+				</tr>
+			{% endfor %}
+
+		</tbody>
+	</table>
+
+	<a href="{{ path('app_borrowers_new') }}">Create new</a>
+{% endblock %}

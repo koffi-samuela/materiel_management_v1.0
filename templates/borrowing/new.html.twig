@@ -1,0 +1,16 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New Borrowing{% endblock %}
+ {% block headTitle %}Emprunter du matériel{% endblock %}
+
+{% block body %}
+    {# <div class="title">
+        <h1>Emprunter du matériel</h1>
+    </div> #}
+<div class="createMaterial">
+    
+    {{ include('borrowing/_form.html.twig') }}
+</div>
+
+    <a href="{{ path('app_borrowing_index') }}" class="btn">Retour a l'historique</a>
+{% endblock %}

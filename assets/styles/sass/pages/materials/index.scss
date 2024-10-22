@@ -1,0 +1,169 @@
+// .materialsIndexTable{
+//     border-radius: 20px;
+//     border-collapse: collapse;
+//     width: 90vw;
+//     text-align: center;
+//     th{
+//         background-color: #33058D;
+//         color: white;
+//         font-size: 16px;
+//         font-weight: normal;
+//         height: 50px;
+//     }
+
+//     tbody{
+//     border:1px solid rgb(197, 197, 197);
+
+//     }
+
+//     .gg-eye {
+//         color:inherit;
+//         position: relative;
+//         display: block;
+//         transform: scale(var(--ggs,1));
+//         width: 24px;
+//         height: 18px;
+//         border-bottom-right-radius: 100px;
+//         border-bottom-left-radius: 100px;
+//         overflow: hidden;
+//         box-sizing: border-box
+//     }
+//     .gg-eye::after,
+//     .gg-eye::before {
+//         content: "";
+//         display: block;
+//         border-radius: 100px;
+//         position: absolute;
+//         box-sizing: border-box
+//     }
+//     .gg-eye::after {
+//         top: 2px;
+//         box-shadow:
+//             inset 0 -8px 0 2px,
+//             inset 0 0 0 2px;
+//         width: 24px;
+//         height: 24px
+//     }
+//     .gg-eye::before {
+//         width: 8px;
+//         height: 8px;
+//         border: 2px solid;
+//         bottom: 4px;
+//         left: 8px
+//     }
+
+//     .gg-pen {
+//         color:inherit;
+
+//         box-sizing: border-box;
+//         position: relative;
+//         display: block;
+//         transform: rotate(-45deg) scale(var(--ggs,1));
+//         width: 14px;
+//         height: 4px;
+//         border-right: 2px solid transparent;
+//         box-shadow:
+//         0 0 0 2px,
+//         inset -2px 0 0;
+//         border-top-right-radius: 1px;
+//         border-bottom-right-radius: 1px;
+//         margin-right: -2px;
+//         margin-top: 1px;
+//     }
+       
+//     .gg-pen::after,
+//     .gg-pen::before {
+//     content: "";
+//     display: block;
+//     box-sizing: border-box;
+//     position: absolute
+//     }
+    
+//     .gg-pen::before {
+//     background: currentColor;
+//     border-left: 0;
+//     right: -6px;
+//     width: 3px;
+//     height: 4px;
+//     border-radius: 1px;
+//     top: 0
+//     }
+    
+//     .gg-pen::after {
+//     width: 8px;
+//     height: 7px;
+//     border-top: 4px solid transparent;
+//     border-bottom: 4px solid transparent;
+//     border-right: 7px solid;
+//     left: -11px;
+//     top: -2px
+//     } 
+
+//     .actions{
+//     display: flex;
+//     justify-content: space-around;
+//     align-items: center ;
+//     height: 100%;
+//     }
+
+//     .text-success{
+//     color:green;
+//     }
+
+//     .text-danger{
+//     color:red;
+//     }
+
+//     .topLeft{
+//     border-top-left-radius: 10px;
+//     }
+
+//     .topRight{
+//     border-top-right-radius: 10px;
+//     padding-right: 20px;
+//     }
+
+//     th,td{
+//     padding: 15px;
+//     }
+
+    .comment{
+    width:40%;
+    }
+
+//     .even{
+//         background-color: rgb(228, 228, 228);
+//     }
+
+
+
+// }
+
+.searchdiv{
+    display: flex;
+    justify-content: center;
+}
+
+.globalSearchBar{
+    width: 70%;
+    justify-content:space-around;
+    display: flex;
+    margin-bottom: 20px;
+    align-items: center;
+}
+
+.globalSearchBar input{
+    width: 70%;
+    padding:10px;
+    border-radius: 10px;
+    border: #33058D 1px solid;
+}
+
+.globalSearchBar button{
+    width: 15%;
+    padding:10px 15px;
+    border-radius: 10px;
+    background-color:#33058D;
+    color:white;
+    border:none;
+}
